@@ -1,27 +1,28 @@
 pipeline {
     agent any
+tools
+	{
+		maven 'MAVEN_HOME'
+	}
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout your source code from version control
-                git url: https://github.com/praneeth463976/demo-pipeline.git
-            }
-        }
+ 
         stage('Build') {
             steps {
                 // Use Maven to build your project
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
         stage('Test') {
             steps {
                 // Run tests if applicable
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'deployed'
+                // Deploy your artifact, if necessary
+                echo 'Deploying the application...'
+            }
         }
     }
     
@@ -36,4 +37,4 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
-}
+} 
