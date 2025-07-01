@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your source code from version control
-                git https://github.com/praneeth463976/demo-pipeline.git
+                git url: https://github.com/praneeth463976/demo-pipeline.git
             }
         }
         stage('Build') {
@@ -21,9 +21,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                // Deploy your artifact, if necessary
-                // Example: sh 'mvn deploy'
-            }
+                echo 'deployed'
         }
     }
     
